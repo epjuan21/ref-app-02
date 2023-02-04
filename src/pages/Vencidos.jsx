@@ -2,22 +2,23 @@ import React, { useEffect, useState } from 'react'
 import { getSocrataData } from '../api'
 import MedicamentCard from '../components/MedicamentCard'
 import SearchBar from '../components/SearchBar'
+import { useDebounce } from '../hooks/useDebounce'
 
 const Vencidos = () => {
 
     const [medicines, setMedicines] = useState([])
     const [search, setSearch] = useState('')
+    const searchTerm = useDebounce(search, 1000)
 
     useEffect(() => {
-		getSocrataData('vwwf-4ftk', search)
+		getSocrataData('vwwf-4ftk', searchTerm)
 			.then((data) => {
 				setMedicines(data)
 			})
-	}, [search])
+	}, [searchTerm])
 
 	const handleChange = e => {
 		setSearch(e.target.value)
-		console.log("Busqueda:  ", e.target.value)
 	}
 
     return (
