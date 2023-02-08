@@ -7,43 +7,41 @@ const CupsCard = ({ cup }) => {
     return (
         <>
             <div className='border rounded bg-white border-indigo-200 mt-2 py-1 px-4'>
-                
-                <div className='flex border-b-2 py-2'>
+
+                <div className='flex flex-col md:flex-row items-center border-b py-2'>
                     <div className='mr-2 font-semibold'>{Codigo}</div>
-                    <div>{Nombre}</div>
+                    <div className='text-center'>{Nombre}</div>
                 </div>
 
-                <div className='flex justify-between text-sm py-2'>
-                    
-                    <div>
-                        <p>Capitulo</p>
-                        <p>{Capitulo}</p>
+                <div className='flex flex-col md:flex-row items-center justify-between text-sm py-2'>
+
+                    <div className='text-center md:text-left'>
+                        <span className='text-xs font-medium text-gray-500'>Capitulo</span>
+                        <p className='text-sm'>{Capitulo}</p>
                     </div>
 
-                    <div>
-                        <p>Descripción</p>
-                        <p>{Descripcion}</p>
+                    <div className='text-center md:text-right'>
+                        <span className='text-xs text-center font-medium text-gray-500'>Descripción</span>
+                        <p className='text-sm'>{Descripcion}</p>
                     </div>
 
-                    <div>
-                        <p>UsoCodigoCUP</p>
-                        <p>{UsoCodigoCUP}</p>
-                    </div>
-
-                    <div>
-                        <p>DxRequerido</p>
-                        <p>{DxRequerido}</p>
-                    </div>
-
-                    <div>
-                        <p>Qx</p>
-                        <p>{Qx}</p>
-                    </div>
                 </div>
 
-                <div className='flex gap-2 border-t-2 py-2 text-sm font-thin'>
-                    <p>Fecha Actualización</p>
-                    <p>{Fecha_Actualizacion}</p>
+                <div className='flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left gap-2 border-t py-2 text-sm font-thin'>
+                    <div>
+                        <span className='text-xs font-medium text-gray-500'>Uso Código CUP</span>
+                        <p className='text-sm'>{UsoCodigoCUP}</p>
+                    </div>
+
+                    <div>
+                        <span className='text-xs font-medium text-gray-500'>Dx Requerido</span>
+                        <p className='text-sm'>{DxRequerido}</p>
+                    </div>
+
+                    <div>
+                        <span className='text-xs font-medium text-gray-500'>Qx</span>
+                        <p className='text-sm'>{Qx}</p>
+                    </div>
                 </div>
             </div>
         </>
