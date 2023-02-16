@@ -19,7 +19,6 @@ const Vigentes = () => {
 
 	const handleChange = e => {
 		setSearch(e.target.value)
-		console.log("Busqueda:  ", e.target.value)
 	}
 
 	return (

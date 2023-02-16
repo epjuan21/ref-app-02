@@ -2,13 +2,14 @@ import { faBuildingUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { getEapb } from '../api'
+import EapbCard from '../components/EapbCard'
 import SearchBar from '../components/SearchBar'
 import { useDebounce } from '../hooks/useDebounce'
 
 const Eapb = () => {
 
-    const [search, setSearch] = useState('')
     const [eapb, setEapb] = useState([])
+    const [search, setSearch] = useState('')
     const searchTerm = useDebounce(search, 1000)
 
     useEffect(() => {
@@ -37,11 +38,16 @@ const Eapb = () => {
             </div>
 
             <SearchBar
-                value={search}
+                value={searchTerm}
                 handleChange={handleChange}
             />
 
-            
+            {eapb.map((entity, _id) => (
+                <EapbCard
+                    key={_id}
+                    eapb={entity}
+                />
+            ))}
 
         </div>
     )

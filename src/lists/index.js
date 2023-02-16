@@ -191,7 +191,7 @@ const list = [
         applications: ['RIPS'],
         link: '/condicionegreso'
     },
-    {
+/*     {
         title: "Código EAPB y Nit",
         description: "Lista Códigos EAPB y NIT",
         icon: faBuildingUser,
@@ -199,7 +199,7 @@ const list = [
         textColor: 'text-zinc-600',
         applications: ['RIPS'],
         link: '/eapb'
-    }
+    } */
 ]
 
 export default list;
