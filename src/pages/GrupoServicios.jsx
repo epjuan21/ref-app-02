@@ -1,24 +1,24 @@
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faGroupArrowsRotate } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
-import { getTipoId } from '../api'
+import { getGrupoServicios } from '../api'
 import SearchBar from '../components/SearchBar'
 
-const TipoId = () => {
+const GrupoServicios = () => {
 
     const [search, setSearch] = useState('')
-    const [tiposId, setTiposId] = useState([])
+    const [servicios, setServicios] = useState([])
 
     useEffect(() => {
-        getTipoId()
+        getGrupoServicios()
             .then((data) => {
-                setTiposId(data)
+                setServicios(data)
             }).catch(err => {
                 console.error(err);
             });
     }, [search])
 
-    const filteredTiposId = tiposId.filter(collection => {
+    const filteredGrupoServicios = servicios.filter(collection => {
         const lowerCaseSearchTerm = search.toLowerCase();
         return (
             collection.Codigo.toLowerCase().includes(lowerCaseSearchTerm) ||
@@ -29,15 +29,16 @@ const TipoId = () => {
     const handleSearch = event => {
         setSearch(event.target.value);
     };
+
     return (
         <div>
             <div className='mb-6 flex items-center'>
                 <div className={`py-3 px-3 mr-4 bg-yellow-100 text-yellow-600 rounded-md`}>
-                    <FontAwesomeIcon icon={faUser} size="xl" />
+                    <FontAwesomeIcon icon={faGroupArrowsRotate} size="xl" />
                 </div>
                 <div>
-                    <h1 className='text-xl font-semibold text-slate-800'>Tipo Id</h1>
-                    <span className='text-sm font-medium text-slate-500'>Tabla de Referencia TipoIdPISIS de SISPRO</span>
+                    <h1 className='text-xl font-semibold text-slate-800'>Grupo Servicios</h1>
+                    <span className='text-sm font-medium text-slate-500'>Tabla de Referencia GrupoServicios de SISPRO</span>
                 </div>
             </div>
 
@@ -45,8 +46,8 @@ const TipoId = () => {
                 value={search}
                 handleChange={handleSearch}
             />
-
-            {filteredTiposId.map(collection => (
+            
+            {filteredGrupoServicios.map(collection => (
                 <div
                     className='border rounded bg-white border-indigo-200 mt-2 py-1 px-4'
                     key={collection._id}
@@ -61,4 +62,4 @@ const TipoId = () => {
     )
 }
 
-export default TipoId
+export default GrupoServicios

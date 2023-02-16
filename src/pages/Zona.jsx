@@ -1,43 +1,44 @@
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBuilding } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
-import { getTipoId } from '../api'
+import { getZona } from '../api'
 import SearchBar from '../components/SearchBar'
 
-const TipoId = () => {
+const Zona = () => {
 
     const [search, setSearch] = useState('')
-    const [tiposId, setTiposId] = useState([])
+    const [zona, setZona] = useState([])
 
     useEffect(() => {
-        getTipoId()
+        getZona()
             .then((data) => {
-                setTiposId(data)
+                setZona(data)
             }).catch(err => {
                 console.error(err);
             });
     }, [search])
 
-    const filteredTiposId = tiposId.filter(collection => {
-        const lowerCaseSearchTerm = search.toLowerCase();
+    const filteredZona = zona.filter(collection => {
+        const lowerCaseSearch = search.toLowerCase();
         return (
-            collection.Codigo.toLowerCase().includes(lowerCaseSearchTerm) ||
-            collection.Nombre.toLowerCase().includes(lowerCaseSearchTerm)
+            collection.Codigo.toLowerCase().includes(lowerCaseSearch) ||
+            collection.Nombre.toLowerCase().includes(lowerCaseSearch)
         );
     });
 
     const handleSearch = event => {
         setSearch(event.target.value);
     };
+
     return (
         <div>
             <div className='mb-6 flex items-center'>
                 <div className={`py-3 px-3 mr-4 bg-yellow-100 text-yellow-600 rounded-md`}>
-                    <FontAwesomeIcon icon={faUser} size="xl" />
+                    <FontAwesomeIcon icon={faBuilding} size="xl" />
                 </div>
                 <div>
-                    <h1 className='text-xl font-semibold text-slate-800'>Tipo Id</h1>
-                    <span className='text-sm font-medium text-slate-500'>Tabla de Referencia TipoIdPISIS de SISPRO</span>
+                    <h1 className='text-xl font-semibold text-slate-800'>Zona</h1>
+                    <span className='text-sm font-medium text-slate-500'>Tabla de Referencia ZonaVersion2 de SISPRO</span>
                 </div>
             </div>
 
@@ -46,7 +47,7 @@ const TipoId = () => {
                 handleChange={handleSearch}
             />
 
-            {filteredTiposId.map(collection => (
+            {filteredZona.map(collection => (
                 <div
                     className='border rounded bg-white border-indigo-200 mt-2 py-1 px-4'
                     key={collection._id}
@@ -57,8 +58,9 @@ const TipoId = () => {
                     </div>
                 </div>
             ))}
+
         </div>
     )
 }
 
-export default TipoId
+export default Zona

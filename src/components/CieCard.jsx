@@ -8,39 +8,35 @@ const CieCard = ({ cie }) => {
         <>
             <div className='border rounded bg-white border-indigo-200 mt-2 py-1 px-4'>
 
-                <div className='flex border-b-2 py-2'>
+                <div className='flex flex-col md:flex-row items-center border-b py-2'>
                     <div className='mr-2 font-semibold'>{Codigo}</div>
-                    <div>{Nombre}</div>
+                    <div className='text-center'>{Nombre}</div>
                 </div>
 
-                <div className='flex justify-between text-sm py-2'>
-
-                <div>
-                        <p>Descripción</p>
-                        <p>{Descripcion}</p>
-                    </div>
+                <div className='flex flex-col md:flex-row items-center text-center md:text-left justify-between text-sm py-2'>
 
                     <div>
-                        <p>Capitulo</p>
-                        <p>{Capitulo}</p>
+                        <span className='text-xs font-medium text-gray-500'>Descripción</span>
+                        <p className='text-sm'>{Descripcion}</p>
                     </div>
 
-                    <div>
-                        <p>SubGrupo</p>
-                        <p>{SubGrupo}</p>
+                    <div className='w-28'>
+                        <span className='text-xs font-medium text-gray-500'>Capítulo</span>
+                        <p className='text-sm'>{Capitulo}</p>
                     </div>
 
-                    <div>
-                        <p>Grupo Mortalidad</p>
-                        <p>{GrupoMortalidad}</p>
+                    <div className='w-32'>
+                        <span className='text-xs font-medium text-gray-500'>Sub grupo</span>
+                        <p className='text-sm'>{SubGrupo}</p>
                     </div>
 
-                    <div>
-      
+                    <div className='w-36'>
+                        <span className='text-xs font-medium text-gray-500'>Grupo Modalidad</span>
+                        <p className='text-sm'>{GrupoMortalidad}</p>
                     </div>
                 </div>
 
-                <div className='flex gap-2 border-t-2 py-2 text-sm font-thin'>
+                <div className='flex gap-2 border-t py-2 text-sm font-thin'>
                     <p>{Extra_V}</p>
                 </div>
             </div>

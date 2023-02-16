@@ -33,10 +33,14 @@ const CupsCard = ({ cup }) => {
                         <p className='text-sm'>{UsoCodigoCUP}</p>
                     </div>
 
-                    <div>
-                        <span className='text-xs font-medium text-gray-500'>Dx Requerido</span>
-                        <p className='text-sm'>{DxRequerido}</p>
-                    </div>
+                    {DxRequerido ? (
+                        <div>
+                            <span className='text-xs font-medium text-gray-500'>Dx Requerido</span>
+                            <p className='text-sm'>{DxRequerido}</p>
+                        </div>
+                    ) : (
+                        ''
+                    )}
 
                     <div>
                         <span className='text-xs font-medium text-gray-500'>Qx</span>
