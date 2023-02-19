@@ -229,10 +229,17 @@ export const getCondicionyDestinoUsuarioEgreso = async () => {
     }
 }
 
-export const getEapb = async () => {
+export const getEapb = async (query) => {
+
+    let url = ''
+    if (!query) {
+        url = 'https://us-east-1.aws.data.mongodb-api.com/app/references-app-tyuix/endpoint/eapb'
+    } else {
+        url = `https://us-east-1.aws.data.mongodb-api.com/app/references-app-tyuix/endpoint/eapb?q=${query}`
+    }
 
     try {
-        const { data } = await apiMongo.get('/eapb')
+        const { data } = await apiMongo.get(url)
         return data.result
     } catch (error) {
         console.log(error)

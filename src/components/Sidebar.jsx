@@ -286,7 +286,7 @@ export default function Sidebar() {
                             >Condición Egreso</span>
                         </NavLink>
                     </li>
-{/*                     <li>
+                    <li>
                         <NavLink
                             to="/eapb"
                             className={({ isActive }) => (isActive ? activeClassName : inactiveClassName)}
@@ -296,7 +296,7 @@ export default function Sidebar() {
                                 className={`${!isOpen && "scale-0"} origin-left duration-300`}
                             >EAPB</span>
                         </NavLink>
-                    </li> */}
+                    </li>
                 </ul>
             </nav>
         </div>
