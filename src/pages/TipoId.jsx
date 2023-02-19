@@ -2,6 +2,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { getTipoId } from '../api'
+import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
 const TipoId = () => {
@@ -30,26 +31,14 @@ const TipoId = () => {
         setSearch(event.target.value);
     };
     return (
-        <div>
-            <div className='mb-6 flex items-center border-b pb-4'>
-                <div className={`py-3 px-3 mr-4 bg-yellow-100 text-yellow-600 rounded-md`}>
-                    <FontAwesomeIcon icon={faUser} size="xl" />
-                </div>
-                <div>
-                    <h1 className='text-xl font-semibold text-slate-800'>Tipo Id</h1>
-                    <span className='text-sm font-medium text-slate-500'>Tabla de Referencia TipoIdPISIS de SISPRO</span>
-                </div>
-            </div>
-
-            <div className='flex justify-between mb-6 border border-slate-200 p-4 rounded-md bg-slate-100'>
-                <p className='text-sm font-semibold text-slate-600'>Fecha Actualización: <span>2021-09-29</span></p>
-                <p className='text-sm font-semibold text-slate-600'>Total Registros: <span>16</span></p>
-            </div>
-
-            <div className='flex justify-between mb-6 border border-slate-200 p-4 rounded-md bg-slate-100'>
-                <p className='text-sm font-semibold text-slate-600'>Fecha Actualización: <span>2022-06-16</span></p>
-                <p className='text-sm font-semibold text-slate-600'>Total Registros: <span>3</span></p>
-            </div>
+        <>
+            <Header
+                icon={faUser}
+                title="Tipo Id"
+                description="Tabla de Referencia TipoIdPISIS de SISPRO"
+                updateDate="2021-09-29"
+                numberRegisters="16"
+            />
 
             <SearchBar
                 value={search}
@@ -67,7 +56,7 @@ const TipoId = () => {
                     </div>
                 </div>
             ))}
-        </div>
+        </>
     )
 }
 

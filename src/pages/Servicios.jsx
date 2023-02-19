@@ -2,6 +2,7 @@ import { faListDots } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { getServicios } from '../api'
+import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
 const Servicios = () => {
@@ -31,21 +32,14 @@ const Servicios = () => {
     };
 
     return (
-        <div>
-            <div className='mb-6 flex items-center border-b pb-4'>
-                <div className={`py-3 px-3 mr-4 bg-yellow-100 text-yellow-600 rounded-md`}>
-                    <FontAwesomeIcon icon={faListDots} size="xl" />
-                </div>
-                <div>
-                    <h1 className='text-xl font-semibold text-slate-800'>Servicios</h1>
-                    <span className='text-sm font-medium text-slate-500'>Tabla de Referencia Servicios de SISPRO</span>
-                </div>
-            </div>
-
-            <div className='flex justify-between mb-6 border border-slate-200 p-4 rounded-md bg-slate-100'>
-                <p className='text-sm font-semibold text-slate-600'>Fecha Actualización: <span>2022-09-02</span></p>
-                <p className='text-sm font-semibold text-slate-600'>Total Registros: <span>157</span></p>
-            </div>
+        <>
+            <Header
+                icon={faListDots}
+                title="Servicios"
+                description="Tabla de Referencia Servicios de SISPRO"
+                updateDate="2022-09-02"
+                numberRegisters="157"
+            />
 
             <SearchBar
                 value={search}
@@ -64,7 +58,7 @@ const Servicios = () => {
                     <p className='text-sm'>{collection.Descripcion}</p>
                 </div>
             ))}
-        </div>
+        </>
     )
 }
 

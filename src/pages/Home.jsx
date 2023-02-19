@@ -4,6 +4,7 @@ import list from '../lists';
 import SearchBar from '../components/SearchBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import Header from '../components/Header';
 
 const Home = () => {
 
@@ -15,15 +16,11 @@ const Home = () => {
 
 	return (
 		<>
-			<div className='mb-6 flex items-center'>
-				<div className={`py-3 px-3 mr-4 bg-slate-100 text-slate-600 rounded-md`}>
-					<FontAwesomeIcon icon={faHome} size="xl" />
-				</div>
-				<div>
-					<h1 className='text-xl font-semibold text-slate-800'>Inicio</h1>
-					<span className='text-sm font-medium text-slate-500'>Buscador Tablas de Referencias</span>
-				</div>
-			</div>
+			<Header
+				icon={faHome}
+				title="Inicio"
+				description="Buscador Tablas de Referencias"
+			/>
 
 			<div className='mb-10'>
 				<h1 className="text-2xl font-semibold">Inicio</h1>

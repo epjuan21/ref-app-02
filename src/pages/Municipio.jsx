@@ -2,6 +2,7 @@ import { faMountainSun } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { getMunicipio } from '../api'
+import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
 const Municipio = () => {
@@ -31,21 +32,14 @@ const Municipio = () => {
     };
 
     return (
-        <div>
-            <div className='mb-6 flex items-center border-b pb-4'>
-                <div className={`py-3 px-3 mr-4 bg-yellow-100 text-yellow-600 rounded-md`}>
-                    <FontAwesomeIcon icon={faMountainSun} size="xl" />
-                </div>
-                <div>
-                    <h1 className='text-xl font-semibold text-slate-800'>Municipio</h1>
-                    <span className='text-sm font-medium text-slate-500'>Tabla de Referencia Municipio de SISPRO</span>
-                </div>
-            </div>
-
-            <div className='flex justify-between mb-6 border border-slate-200 p-4 rounded-md bg-slate-100'>
-                <p className='text-sm font-semibold text-slate-600'>Fecha Actualización: <span>2018-10-12</span></p>
-                <p className='text-sm font-semibold text-slate-600'>Total Registros: <span>1123</span></p>
-            </div>
+        <>
+            <Header
+                icon={faMountainSun}
+                title="Municipio"
+                description="Tabla de Referencia Municipio de SISPRO"
+                updateDate="2018-10-12"
+                numberRegisters="1123"
+            />
 
             <SearchBar
                 value={search}
@@ -63,8 +57,7 @@ const Municipio = () => {
                     </div>
                 </div>
             ))}
-
-        </div>
+        </>
     )
 }
 

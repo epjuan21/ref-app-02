@@ -2,6 +2,7 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { getLstSiNo } from '../api'
+import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
 const LstSiNo = () => {
@@ -31,21 +32,14 @@ const LstSiNo = () => {
     };
 
     return (
-        <div>
-            <div className='mb-6 flex items-center border-b pb-4'>
-                <div className={`py-3 px-3 mr-4 bg-yellow-100 text-yellow-600 rounded-md`}>
-                    <FontAwesomeIcon icon={faThumbsUp} size="xl" />
-                </div>
-                <div>
-                    <h1 className='text-xl font-semibold text-slate-800'>Lista Si No</h1>
-                    <span className='text-sm font-medium text-slate-500'>Tabla de Referencia LstSINO de SISPRO</span>
-                </div>
-            </div>
-
-            <div className='flex justify-between mb-6 border border-slate-200 p-4 rounded-md bg-slate-100'>
-                <p className='text-sm font-semibold text-slate-600'>Fecha Actualización: <span>2021-07-21</span></p>
-                <p className='text-sm font-semibold text-slate-600'>Total Registros: <span>2</span></p>
-            </div>
+        <>
+            <Header
+                icon={faThumbsUp}
+                title="Lista Si No"
+                description="Tabla de Referencia LstSINO de SISPRO"
+                updateDate="2021-07-21"
+                numberRegisters="2"
+            />
 
             <SearchBar
                 value={search}
@@ -64,7 +58,7 @@ const LstSiNo = () => {
                     </div>
                 </div>
             ))}
-        </div>
+        </>
     )
 }
 

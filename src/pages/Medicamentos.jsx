@@ -2,19 +2,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { faCapsules, faCircleCheck, faCircleExclamation, faCircleQuestion, faCircleUp } from '@fortawesome/free-solid-svg-icons';
+import Header from '../components/Header';
 
 const Medicamentos = () => {
     return (
         <>
-            <div className='mb-4 flex items-center border-b pb-4'>
-                <div className={`py-3 px-3 mr-4 bg-pink-100 text-pink-600 rounded-md`}>
-                    <FontAwesomeIcon icon={faCapsules} size="xl" />
-                </div>
-                <div>
-                    <h1 className='text-xl font-semibold text-slate-800'>Medicamentos</h1>
-                    <span className='text-sm font-medium text-slate-500'>Tablas de Medicamentos del INVIMA</span>
-                </div>
-            </div>
+            <Header
+                icon={faCapsules}
+                title="Medicamentos"
+                description="Tablas de Medicamentos del INVIMA"
+            />
 
             <nav className="flex mb-6" aria-label="Breadcrumb">
                 <ol className="inline-flex items-center space-x-1 md:space-x-3">

@@ -2,6 +2,7 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { getTipoUsuarioVersion2 } from '../api'
+import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
 const TipoUsuario = () => {
@@ -31,21 +32,14 @@ const TipoUsuario = () => {
     };
 
     return (
-        <div>
-            <div className='mb-6 flex items-center border-b pb-4'>
-                <div className={`py-3 px-3 mr-4 bg-yellow-100 text-yellow-600 rounded-md`}>
-                    <FontAwesomeIcon icon={faUsers} size="xl" />
-                </div>
-                <div>
-                    <h1 className='text-xl font-semibold text-slate-800'>Tipo Usuario</h1>
-                    <span className='text-sm font-medium text-slate-500'>Tabla de Referencia RIPSTipoUsuarioVersion2 de SISPRO</span>
-                </div>
-            </div>
-
-            <div className='flex justify-between mb-6 border border-slate-200 p-4 rounded-md bg-slate-100'>
-                <p className='text-sm font-semibold text-slate-600'>Fecha Actualización: <span>2022-06-16</span></p>
-                <p className='text-sm font-semibold text-slate-600'>Total Registros: <span>12</span></p>
-            </div>
+        <>
+            <Header
+                icon={faUsers}
+                title="Tipo Usuario"
+                description="Tabla de Referencia RIPSTipoUsuarioVersion2 de SISPRO"
+                updateDate="2022-06-16"
+                numberRegisters="12"
+            />
 
             <SearchBar
                 value={search}
@@ -63,7 +57,7 @@ const TipoUsuario = () => {
                     </div>
                 </div>
             ))}
-        </div>
+        </>
     )
 }
 

@@ -2,6 +2,7 @@ import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { getSexo } from '../api'
+import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
 const Sexo = () => {
@@ -31,22 +32,15 @@ const Sexo = () => {
     };
 
     return (
-        <div>
-            <div className='mb-6 flex items-center border-b pb-4'>
-                <div className={`py-3 px-3 mr-4 bg-yellow-100 text-yellow-600 rounded-md`}>
-                    <FontAwesomeIcon icon={faPeopleGroup} size="xl" />
-                </div>
-                <div>
-                    <h1 className='text-xl font-semibold text-slate-800'>Sexo</h1>
-                    <span className='text-sm font-medium text-slate-500'>Tabla de Referencia Sexo de SISPRO</span>
-                </div>
-            </div>
+        <>
+            <Header
+                icon={faPeopleGroup}
+                title="Sexo"
+                description="Tabla de Referencia Sexo de SISPRO"
+                updateDate="2021-08-13"
+                numberRegisters="3"
+            />
 
-            <div className='flex justify-between mb-6 border border-slate-200 p-4 rounded-md bg-slate-100'>
-                <p className='text-sm font-semibold text-slate-600'>Fecha Actualización: <span>2021-08-13</span></p>
-                <p className='text-sm font-semibold text-slate-600'>Total Registros: <span>3</span></p>
-            </div>
-            
             <SearchBar
                 value={search}
                 handleChange={handleSearch}
@@ -63,7 +57,7 @@ const Sexo = () => {
                     </div>
                 </div>
             ))}
-        </div>
+        </>
     )
 }
 
