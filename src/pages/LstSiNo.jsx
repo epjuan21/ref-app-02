@@ -1,5 +1,4 @@
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getLstSiNo } from '../api'
@@ -50,7 +49,7 @@ const LstSiNo = () => {
                     </li>
                 </ol>
             </nav>
-            
+
             <Header
                 icon={faThumbsUp}
                 iconBgColor={'bg-purple-50'}
