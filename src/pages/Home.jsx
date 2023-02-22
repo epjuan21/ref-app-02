@@ -33,6 +33,8 @@ const Home = () => {
 						title={item.title}
 						description={item.description}
 						icon={item.icon}
+						iconBgColor={item.iconBgColor}
+						iconTextColor={item.iconTextColor}
 						bgColor={item.bgColor}
 						textColor={item.textColor}
 						applications={item.applications}

@@ -2,17 +2,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ListItems = ({ title, description, applications, icon, bgColor, textColor, link }) => {
+const ListItems = ({ title, description, applications, icon, iconBgColor, iconTextColor, bgColor, textColor, link }) => {
 
     return (
         <Link
             to={link}
-            className='flex items-center w-full bg-white px-4 py-3 rounded-md mb-2 border hover:border-2 hover:border-blue-500 hover:shadow-md transition-all'
+            className='flex flex-col sm:flex-row items-start gap-y-2 gap-x-4 flex-wrap w-full bg-white px-4 py-3 rounded-md mb-2 border hover:border hover:border-blue-500 transition-all overflow-hidden'
         >
-            <div className={`${bgColor} py-2 px-3 rounded-md ${textColor}`}>
+            <div className={`${iconBgColor} flex h-12 w-12 items-center justify-center rounded-md ${iconTextColor}`}>
                 <FontAwesomeIcon icon={icon} />
             </div>
-            <div className='ml-4'>
+            <div className='ml-0'>
                 <div className='mb-1'>
                     <span className='font-semibold tracking-wide'>{title}</span>
                     {applications?.map(applitation => (
