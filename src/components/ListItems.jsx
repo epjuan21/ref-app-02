@@ -7,7 +7,7 @@ const ListItems = ({ title, description, applications, icon, iconBgColor, iconTe
     return (
         <Link
             to={link}
-            className='flex flex-col sm:flex-row items-start gap-y-2 gap-x-4 flex-wrap w-full bg-white px-4 py-3 rounded-md mb-2 border hover:border hover:border-blue-500 transition-all overflow-hidden'
+            className='flex flex-col sm:flex-row items-start gap-y-2 gap-x-4 flex-wrap bg-white px-4 py-3 rounded-md mb-2 border hover:border hover:border-blue-500 transition-all overflow-hidden'
         >
             <div className={`${iconBgColor} flex h-12 w-12 items-center justify-center rounded-md ${iconTextColor}`}>
                 <FontAwesomeIcon icon={icon} />

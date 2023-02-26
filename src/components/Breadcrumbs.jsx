@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 function Breadcrumbs({ items }) {
@@ -15,30 +16,14 @@ function Breadcrumbs({ items }) {
                   className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
                 >
                   {item.icon && (
-                    <svg
-                      aria-hidden="true"
-                      className="w-4 h-4 mr-2"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d={item.icon} />
-                    </svg>
+                    <FontAwesomeIcon icon={item.icon} className='mr-2' />
                   )}
                   {item.label}
                 </Link>
               ) : (
                 <div className="flex items-center">
                   {item.icon && (
-                    <svg
-                      aria-hidden="true"
-                      className="w-6 h-6 text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d={item.icon} />
-                    </svg>
+                    <FontAwesomeIcon icon={item.icon} className='mr-2 text-gray-400' />
                   )}
                   <span className="ml-1 text-sm font-medium text-gray-700 md:ml-2 dark:text-gray-400 ">
                     {item.label}

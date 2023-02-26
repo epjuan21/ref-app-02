@@ -26,7 +26,7 @@ const Home = () => {
 				handleChange={e => setSearchTerm(e.target.value)}
 			/>
 
-			<div className='grid grid-cols-1 xl:grid-cols-3 xl:gap-4 gap-0'>
+			<div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-4 xl:gap-4 gap-0'>
 				{filteredItems?.map(item => (
 					<ListItems
 						key={item.title}

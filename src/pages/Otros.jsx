@@ -1,3 +1,4 @@
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
 import { getSocrataData } from '../api'
 import MedicamentCard from '../components/MedicamentCard'
