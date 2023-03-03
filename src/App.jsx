@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Layout from "./layouts/Layout"
+import { MenuProvider } from "./MenuContext"
 import CausaExterna from "./pages/CausaExterna"
 import Cie from "./pages/Cie"
 import CondicionEgreso from "./pages/CondicionEgreso"
@@ -31,40 +32,42 @@ import Zona from "./pages/Zona"
 function App() {
 
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<Layout />}>
-					<Route index element={<Home />} />
-					<Route path="/medicamentos/" element={<Medicamentos />} >
-						<Route path="vigentes" element={<Vigentes />} />
-						<Route path="vencidos" element={<Vencidos />} />
-						<Route path="renovacion" element={<Renovacion />} />
-						<Route path="otros" element={<Otros />} />
+		<MenuProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Layout />}>
+						<Route index element={<Home />} />
+						<Route path="/medicamentos/" element={<Medicamentos />} >
+							<Route path="vigentes" element={<Vigentes />} />
+							<Route path="vencidos" element={<Vencidos />} />
+							<Route path="renovacion" element={<Renovacion />} />
+							<Route path="otros" element={<Otros />} />
+						</Route>
+						<Route path="/cups" element={<Cups/>} ></Route>
+						<Route path="/cie" element={<Cie/>} ></Route>
+						<Route path="/tipoid" element={<TipoId/>} ></Route>
+						<Route path="/zona" element={<Zona/>} ></Route>
+						<Route path="/via" element={<ViaIngreso/>} ></Route>
+						<Route path="/tiponota" element={<TipoNota/>} ></Route>
+						<Route path="/tipomedicamentopos" element={<TipoMedicamentosPos/>} ></Route>
+						<Route path="/sexo" element={<Sexo/>} ></Route>
+						<Route path="/servicios" element={<Servicios/>} ></Route>
+						<Route path="/tipousuario" element={<TipoUsuario/>} ></Route>
+						<Route path="/tipodiagnosticoppal" element={<TipoDiagnosticoPrincipal/>} ></Route>
+						<Route path="/finalidad" element={<FinalidadConsulta/>} ></Route>
+						<Route path="/causa" element={<CausaExterna/>} ></Route>
+						<Route path="/pais" element={<Pais/>} ></Route>
+						<Route path="/municipio" element={<Municipio/>} ></Route>
+						<Route path="/departamento" element={<Departamento/>} ></Route>
+						<Route path="/modalidad" element={<Modalidad/>} ></Route>
+						<Route path="/lstsino" element={<LstSiNo/>} ></Route>
+						<Route path="/gruposervicios" element={<GrupoServicios/>} ></Route>
+						<Route path="/condicionegreso" element={<CondicionEgreso/>} ></Route>
+						<Route path="/eapb" element={<Eapb/>} ></Route>
 					</Route>
-					<Route path="/cups" element={<Cups/>} ></Route>
-					<Route path="/cie" element={<Cie/>} ></Route>
-					<Route path="/tipoid" element={<TipoId/>} ></Route>
-					<Route path="/zona" element={<Zona/>} ></Route>
-					<Route path="/via" element={<ViaIngreso/>} ></Route>
-					<Route path="/tiponota" element={<TipoNota/>} ></Route>
-					<Route path="/tipomedicamentopos" element={<TipoMedicamentosPos/>} ></Route>
-					<Route path="/sexo" element={<Sexo/>} ></Route>
-					<Route path="/servicios" element={<Servicios/>} ></Route>
-					<Route path="/tipousuario" element={<TipoUsuario/>} ></Route>
-					<Route path="/tipodiagnosticoppal" element={<TipoDiagnosticoPrincipal/>} ></Route>
-					<Route path="/finalidad" element={<FinalidadConsulta/>} ></Route>
-					<Route path="/causa" element={<CausaExterna/>} ></Route>
-					<Route path="/pais" element={<Pais/>} ></Route>
-					<Route path="/municipio" element={<Municipio/>} ></Route>
-					<Route path="/departamento" element={<Departamento/>} ></Route>
-					<Route path="/modalidad" element={<Modalidad/>} ></Route>
-					<Route path="/lstsino" element={<LstSiNo/>} ></Route>
-					<Route path="/gruposervicios" element={<GrupoServicios/>} ></Route>
-					<Route path="/condicionegreso" element={<CondicionEgreso/>} ></Route>
-					<Route path="/eapb" element={<Eapb/>} ></Route>
-				</Route>
-			</Routes>
-		</BrowserRouter>
+				</Routes>
+			</BrowserRouter>
+		</MenuProvider>
 	)
 }
 

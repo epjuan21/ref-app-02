@@ -9,7 +9,6 @@ const Pagination = ({ itemsPerPage, items }) => {
 
     return (
         <>
-
             <EapbCard eapb={currentItems} />
 
             <ReactPaginate
