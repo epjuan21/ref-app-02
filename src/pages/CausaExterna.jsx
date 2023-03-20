@@ -1,6 +1,6 @@
 import { faChevronRight, faFileMedical, faHome } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getCausaExternaVersion2 } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
@@ -11,7 +11,7 @@ const CausaExterna = () => {
     const [causaExterna, setCausaExterna] = useState([])
 
     useEffect(() => {
-        getCausaExternaVersion2()
+        getDataFromMongo('causaexternaversion2')
             .then((data) => {
                 setCausaExterna(data)
             }).catch(err => {

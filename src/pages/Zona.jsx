@@ -1,6 +1,6 @@
 import { faBuilding, faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getZona } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
@@ -11,7 +11,7 @@ const Zona = () => {
     const [zona, setZona] = useState([])
 
     useEffect(() => {
-        getZona()
+        getDataFromMongo('zona')
             .then((data) => {
                 setZona(data)
             }).catch(err => {

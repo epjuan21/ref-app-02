@@ -1,6 +1,6 @@
 import { faArrowCircleRight, faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getViaIngreso } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
@@ -11,7 +11,7 @@ const ViaIngreso = () => {
     const [via, setVia] = useState([])
 
     useEffect(() => {
-        getViaIngreso()
+        getDataFromMongo('viaingreso')
             .then((data) => {
                 setVia(data)
             }).catch(err => {

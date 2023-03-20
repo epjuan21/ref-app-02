@@ -1,6 +1,6 @@
 import { faChevronRight, faHome, faVirus } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getCie } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import CieCard from '../components/CieCard'
 import Header from '../components/Header'
@@ -14,7 +14,7 @@ const Cie = () => {
     const searchTerm = useDebounce(search, 1000)
 
     useEffect(() => {
-        getCie(searchTerm)
+        getDataFromMongo('searchCie', searchTerm)
             .then((data) => {
                 setCies(data)
             }).catch(err => {

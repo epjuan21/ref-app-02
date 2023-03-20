@@ -1,6 +1,6 @@
 import { faChevronRight, faEarthAmericas, faHome } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getPais } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
@@ -11,7 +11,7 @@ const Pais = () => {
     const [pais, setPais] = useState([])
 
     useEffect(() => {
-        getPais()
+        getDataFromMongo('pais')
             .then((data) => {
                 setPais(data)
             }).catch(err => {

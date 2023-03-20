@@ -1,6 +1,6 @@
 import { faBuildingUser, faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getEapb } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import EapbCard from '../components/EapbCard'
 import Header from '../components/Header'
@@ -17,7 +17,7 @@ const Eapb = () => {
     const { currentItems, totalPages, handlePageClick } = usePagination(eapb, 20);
 
     useEffect(() => {
-        getEapb(searchTerm)
+        getDataFromMongo('eapb',searchTerm)
             .then((data) => {
                 setEapb(data)
             }).catch(err => {

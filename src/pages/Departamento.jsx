@@ -1,6 +1,6 @@
 import { faChevronRight, faHome, faMap } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getDepartamento } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
@@ -11,7 +11,7 @@ const Departamento = () => {
     const [departamento, setDepartamento] = useState([])
 
     useEffect(() => {
-        getDepartamento()
+        getDataFromMongo('departamentos')
             .then((data) => {
                 setDepartamento(data)
             }).catch(err => {

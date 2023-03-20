@@ -1,6 +1,6 @@
 import { faChevronRight, faHome, faList } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getCups } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import CupsCard from '../components/CupsCard'
 import Header from '../components/Header'
@@ -14,7 +14,7 @@ const Cups = () => {
     const searchTerm = useDebounce(search, 1000)
 
     useEffect(() => {
-        getCups(searchTerm)
+        getDataFromMongo('searchCups', searchTerm)
             .then((data) => {
                 setCups(data)
             })
@@ -38,7 +38,7 @@ const Cups = () => {
 
     return (
         <>
-            <Breadcrumbs items={items}/>
+            <Breadcrumbs items={items} />
 
             <Header
                 icon={faList}

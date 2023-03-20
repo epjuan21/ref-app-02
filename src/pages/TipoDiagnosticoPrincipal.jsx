@@ -1,6 +1,6 @@
 import { faChevronRight, faDisease, faHome } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getTipoDiagnosticoPrincipalVersion2 } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
@@ -11,7 +11,7 @@ const TipoDiagnosticoPrincipal = () => {
     const [tipoDiagnosticoPrincipal, setTipoDiagnosticoPrincipal] = useState([])
 
     useEffect(() => {
-        getTipoDiagnosticoPrincipalVersion2()
+        getDataFromMongo('getipodiagnosticoprincipal')
             .then((data) => {
                 setTipoDiagnosticoPrincipal(data)
             }).catch(err => {

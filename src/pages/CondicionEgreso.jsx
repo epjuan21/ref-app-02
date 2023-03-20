@@ -1,6 +1,6 @@
 import { faBed, faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getCondicionyDestinoUsuarioEgreso } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
@@ -11,7 +11,7 @@ const CondicionEgreso = () => {
     const [condicionEgreso, setCondicionEgreso] = useState([])
 
     useEffect(() => {
-        getCondicionyDestinoUsuarioEgreso()
+        getDataFromMongo('condicionegreso')
             .then((data) => {
                 setCondicionEgreso(data)
             }).catch(err => {

@@ -1,6 +1,6 @@
 import { faBookMedical, faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getFinalidadConsultaVersion2 } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
@@ -11,7 +11,7 @@ const FinalidadConsulta = () => {
     const [finalidadConsulta, setFinalidadConsulta] = useState([])
 
     useEffect(() => {
-        getFinalidadConsultaVersion2()
+        getDataFromMongo('finalidadconsultaversion2')
             .then((data) => {
                 setFinalidadConsulta(data)
             }).catch(err => {

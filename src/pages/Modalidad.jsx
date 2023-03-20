@@ -1,6 +1,6 @@
 import { faChevronRight, faHome, faHouseMedical } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getModalidad } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
@@ -11,7 +11,7 @@ const Modalidad = () => {
     const [modalidad, setModalidad] = useState([])
 
     useEffect(() => {
-        getModalidad()
+        getDataFromMongo('modalidad')
             .then((data) => {
                 setModalidad(data)
             }).catch(err => {

@@ -1,6 +1,6 @@
 import { faChevronRight, faHome, faUsers } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
-import { getTipoUsuarioVersion2 } from '../api'
+import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
@@ -11,7 +11,7 @@ const TipoUsuario = () => {
     const [tipoUsuario, setTipoUsuario] = useState([])
 
     useEffect(() => {
-        getTipoUsuarioVersion2()
+        getDataFromMongo('tipousuario')
             .then((data) => {
                 setTipoUsuario(data)
             }).catch(err => {
