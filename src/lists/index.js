@@ -99,7 +99,7 @@ const list = [
         bgColor: 'bg-zinc-100',
         textColor: 'text-zinc-600',
         applications: ['RIPS'],
-        link: '/tipomedicamentopos'
+        link: '/sexo'
     },
     {
         title: "Servicios",
