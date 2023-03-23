@@ -4,6 +4,7 @@ import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import CieCard from '../components/CieCard'
 import Header from '../components/Header'
+import Pagination from '../components/Pagination'
 import SearchBar from '../components/SearchBar'
 import { useDebounce } from '../hooks/useDebounce'
 
@@ -12,6 +13,7 @@ const Cie = () => {
     const [search, setSearch] = useState('')
     const [cies, setCies] = useState([])
     const searchTerm = useDebounce(search, 1000)
+    const itemsPerPage = 10;
 
     useEffect(() => {
         getDataFromMongo('searchCie', searchTerm)
@@ -56,14 +58,8 @@ const Cie = () => {
                 value={search}
                 handleChange={handleChange}
             />
-            <div>
-                {cies.map((cie, _id) => (
-                    <CieCard
-                        key={_id}
-                        cie={cie}
-                    />
-                ))}
-            </div>
+
+            <Pagination items={cies} itemsPerPage={itemsPerPage} CardComponent={CieCard} />
         </>
     )
 }

@@ -1,34 +1,65 @@
-import React from 'react'
-import ReactPaginate from 'react-paginate';
-import { usePagination } from '../hooks/usePagination';
-import EapbCard from './EapbCard';
+import React from 'react';
+import usePagination from '../hooks/usePagination';
 
-const Pagination = ({ itemsPerPage, items }) => {
-
-    const { endOffset, currentItems, pageCount, handlePageClick } = usePagination(items, itemsPerPage);
-
+const Pagination = ({ items, itemsPerPage, CardComponent }) => {
+    const { next, prev, jump, currentItems, currentPage, startPage, endPage, totalPages } = usePagination(items, itemsPerPage);
     return (
         <>
-            <EapbCard eapb={currentItems} />
+            {/* Mostrar los elementos de la página actual */}
+            <ul className="list-disc list-inside mb-4">
+                {currentItems.map(item => (
+                    <CardComponent key={item._id} items={item} />
+                ))}
+            </ul>
 
-            <ReactPaginate
-                breakLabel="..."
-                nextLabel="Siguiente >"
-                onPageChange={handlePageClick}
-                pageRangeDisplayed={5}
-                pageCount={pageCount}
-                previousLabel="< Anterior"
-                renderOnZeroPageCount={null}
-                containerClassName="pagination"
-                pageClassName='page-class'
-                pageLinkClassName='page-link'
-                activeLinkClassName='active'
-                previousClassName='previous'
-                nextClassName='next'
-                breakClassName='page-link'
-            />
+            {/* Mostrar botones para cambiar de página */}
+            <div className="flex justify-center">
+                <button
+                    onClick={() => jump(1)}
+                    className={`${currentPage === 1 ? 'bg-gray-50 text-gray-300 cursor-not-allowed' : ''} px-3 mx-1 py-1 border rounded-md`}
+                    disabled={currentPage === 1}
+                >
+                    Primera
+                </button>
+                <button
+                    onClick={prev}
+                    className={`${currentPage === 1 ? 'bg-gray-50 text-gray-300 cursor-not-allowed' : ''} px-3 mx-1 py-1 border rounded-md `}
+                    disabled={currentPage === 1}
+                >
+                    Anterior
+                </button>
+
+                {/* Agregar botones para cada página */}
+                {[...Array(endPage - startPage)].map((_, index) => {
+                    const pageNumber = startPage + index;
+                    return (
+                        <button
+                            key={pageNumber}
+                            onClick={() => jump(pageNumber)}
+                            className={`px-3 mx-1 py-1 border rounded-md ${currentPage === pageNumber ? 'bg-blue-200' : ''}`}
+                        >
+                            {pageNumber}
+                        </button>
+                    );
+                })}
+
+                <button
+                    onClick={next}
+                    className={`${currentPage === totalPages ? 'bg-gray-50 text-gray-300 cursor-not-allowed' : ''} px-3 mx-1 py-1 border rounded-md`}
+                    disabled={currentPage === totalPages}
+                >
+                    Siguiente
+                </button>
+                <button
+                    onClick={() => jump(totalPages)}
+                    className={`${currentPage === totalPages ? 'bg-gray-50 text-gray-300 cursor-not-allowed' : ''} px-3 mx-1 py-1 border rounded-md`}
+                    disabled={currentPage === totalPages}
+                >
+                    Última
+                </button>
+            </div>
         </>
-    )
-}
+    );
+};
 
-export default Pagination
+export default Pagination;

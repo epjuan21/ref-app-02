@@ -1,8 +1,8 @@
 import React from 'react'
 
-const CieCard = ({ cie }) => {
+const CieCard = ({ items }) => {
 
-    const { Codigo, Nombre, Descripcion, AplicaASexo, EdadMinima, EdadMaxima, GrupoMortalidad, Extra_V, Capitulo, SubGrupo, SubCategoria } = cie
+    const { Codigo, Nombre, Descripcion, AplicaASexo, EdadMinima, EdadMaxima, GrupoMortalidad, Extra_V, Capitulo, SubGrupo, SubCategoria } = items
 
     return (
         <>

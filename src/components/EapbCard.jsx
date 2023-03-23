@@ -1,8 +1,8 @@
 import React from 'react'
 
-const EapbCard = ({ eapb }) => {
+const EapbCard = ({ items }) => {
 
-    const { Codigo, Nombre, Descripcion, Habilitado, TipoRegimen, TipoID, Regimen, Nit, Tipo } = eapb;
+    const { Codigo, Nombre, Descripcion, Habilitado, TipoRegimen, TipoID, Regimen, Nit, Tipo } = items;
 
     return (
         <>

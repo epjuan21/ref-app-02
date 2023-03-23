@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function MedicamentCard({ medicament }) {
+export default function MedicamentCard({ items }) {
 
-    const { estadocum, producto, registrosanitario, descripcioncomercial, expediente, consecutivocum, cantidadcum, atc, descripcionatc, viaadministracion, concentracion, principioactivo, unidadmedida, cantidad, unidadreferencia, formafarmaceutica, titular, nombrerol } = medicament
+    const { estadocum, producto, registrosanitario, descripcioncomercial, expediente, consecutivocum, cantidadcum, atc, descripcionatc, viaadministracion, concentracion, principioactivo, unidadmedida, cantidad, unidadreferencia, formafarmaceutica, titular, nombrerol } = items
 
     return (
         <div className='border rounded bg-white border-indigo-200 mt-2 py-2 px-4'>

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const CupsCard = ({ cup }) => {
+const CupsCard = ({ items }) => {
 
-    const { Codigo, Descripcion, Habilitado, Nombre, Qx, UsoCodigoCUP, NroMinimo, NroMaximo, DxRequerido, Capitulo, Grupo, SubGrupo, Categoria, SubCategoria } = cup
+    const { Codigo, Descripcion, Habilitado, Nombre, Qx, UsoCodigoCUP, NroMinimo, NroMaximo, DxRequerido, Capitulo, Grupo, SubGrupo, Categoria, SubCategoria } = items
 
     return (
         <>
@@ -113,8 +113,6 @@ const CupsCard = ({ cup }) => {
                     ) : (
                         ''
                     )}
-
-
 
                 </div>
             </div>

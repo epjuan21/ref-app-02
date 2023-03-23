@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
+import Pagination from '../components/Pagination'
 import SearchBar from '../components/SearchBar'
 
 const Pais = () => {
 
     const [search, setSearch] = useState('')
     const [pais, setPais] = useState([])
+    const itemsPerPage = 10;
 
     useEffect(() => {
         getDataFromMongo('pais')
@@ -43,9 +45,27 @@ const Pais = () => {
         }
     ]
 
+    const CardComponent = ({ items }) => (
+        <div
+            className='border rounded bg-white border-indigo-200 mt-2 py-1 px-4'
+            key={items._id}
+        >
+            <div className='flex items-center py-2'>
+                <div className='w-12'>
+                    <img src={`https://flagcdn.com/32x24/${items.Extra_II.toLowerCase()}.png`} height="40" alt={`Bandera de ${items.Nombre}`} />
+                </div>
+                <div>
+                    <p className='text-sm font-semibold'>{items.Codigo} <span>{items.Nombre}</span></p>
+                    <p className='text-xs'>Alpha-2 <span className='font-semibold'>{items.Extra_II}</span></p>
+                    <p className='text-xs'>Alpha-3 <span className='font-semibold'>{items.Extra_III}</span></p>
+                </div>
+            </div>
+        </div>
+    );
+
     return (
         <>
-            <Breadcrumbs items={items}/>
+            <Breadcrumbs items={items} />
 
             <Header
                 icon={faEarthAmericas}
@@ -62,7 +82,7 @@ const Pais = () => {
                 handleChange={handleSearch}
             />
 
-            {filteredPais.map(collection => (
+{/*             {filteredPais.map(collection => (
                 <div
                     className='border rounded bg-white border-indigo-200 mt-2 py-1 px-4'
                     key={collection._id}
@@ -78,7 +98,9 @@ const Pais = () => {
                         </div>
                     </div>
                 </div>
-            ))}
+            ))} */}
+
+            <Pagination items={filteredPais} itemsPerPage={itemsPerPage} CardComponent={CardComponent} />
         </>
     )
 }

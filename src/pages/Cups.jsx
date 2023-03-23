@@ -4,6 +4,7 @@ import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import CupsCard from '../components/CupsCard'
 import Header from '../components/Header'
+import Pagination from '../components/Pagination'
 import SearchBar from '../components/SearchBar'
 import { useDebounce } from '../hooks/useDebounce'
 
@@ -12,6 +13,7 @@ const Cups = () => {
     const [search, setSearch] = useState('')
     const [cups, setCups] = useState([])
     const searchTerm = useDebounce(search, 1000)
+    const itemsPerPage = 10;
 
     useEffect(() => {
         getDataFromMongo('searchCups', searchTerm)
@@ -55,14 +57,7 @@ const Cups = () => {
                 handleChange={handleChange}
             />
 
-            <div>
-                {cups.map((cup, _id) => (
-                    <CupsCard
-                        key={_id}
-                        cup={cup}
-                    />
-                ))}
-            </div>
+            <Pagination items={cups} itemsPerPage={itemsPerPage} CardComponent={CupsCard} />
         </>
     )
 }

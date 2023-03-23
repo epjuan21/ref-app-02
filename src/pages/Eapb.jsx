@@ -4,20 +4,19 @@ import { getDataFromMongo } from '../api'
 import Breadcrumbs from '../components/Breadcrumbs'
 import EapbCard from '../components/EapbCard'
 import Header from '../components/Header'
-import PaginateComponent from '../components/PaginateComponent'
+import Pagination from '../components/Pagination'
 import SearchBar from '../components/SearchBar'
 import { useDebounce } from '../hooks/useDebounce'
-import { usePagination } from '../hooks/usePagination'
 
 const Eapb = () => {
 
     const [eapb, setEapb] = useState([])
     const [search, setSearch] = useState('')
     const searchTerm = useDebounce(search, 1000)
-    const { currentItems, totalPages, handlePageClick } = usePagination(eapb, 20);
+    const itemsPerPage = 10;
 
     useEffect(() => {
-        getDataFromMongo('eapb',searchTerm)
+        getDataFromMongo('eapb', searchTerm)
             .then((data) => {
                 setEapb(data)
             }).catch(err => {
@@ -43,7 +42,7 @@ const Eapb = () => {
 
     return (
         <>
-            <Breadcrumbs items={items} /> 
+            <Breadcrumbs items={items} />
 
             <Header
                 icon={faBuildingUser}
@@ -60,16 +59,8 @@ const Eapb = () => {
                 handleChange={handleChange}
             />
 
-            {
-                currentItems.map(page => (
-                    <EapbCard
-                        key={page._id}
-                        eapb={page}
-                    />
-                ))
-            }
+            <Pagination items={eapb} itemsPerPage={itemsPerPage} CardComponent={EapbCard} />
 
-            <PaginateComponent totalPages={totalPages} handlePageClick={handlePageClick} />
         </>
     )
 }
