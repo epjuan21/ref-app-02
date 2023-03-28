@@ -55,7 +55,7 @@ const Pagination = ({ items, itemsPerPage, CardComponent }) => {
                         <button
                             key={pageNumber}
                             onClick={() => jump(pageNumber)}
-                            className={`h-8 w-8 mx-1 rounded-md font-semibold ${currentPage === pageNumber ? 'bg-blue-400 text-white' : 'text-slate-400 '}`}
+                            className={`hidden md:block h-8 w-8 mx-1 rounded-md font-semibold ${currentPage === pageNumber ? 'bg-blue-400 text-white' : 'text-slate-400 '}`}
                         >
                             {pageNumber}
                         </button>
