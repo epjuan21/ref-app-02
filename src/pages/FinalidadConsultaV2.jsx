@@ -5,13 +5,13 @@ import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
-const FinalidadConsulta = () => {
+const FinalidadConsultaV2 = () => {
 
     const [search, setSearch] = useState('')
     const [finalidadConsulta, setFinalidadConsulta] = useState([])
 
     useEffect(() => {
-        getDataFromMongo('finalidadconsulta')
+        getDataFromMongo('finalidadconsultaversion2')
             .then((data) => {
                 setFinalidadConsulta(data)
             }).catch(err => {
@@ -45,14 +45,14 @@ const FinalidadConsulta = () => {
 
     return (
         <>
-            <Breadcrumbs items={items} />
+            <Breadcrumbs items={items} /> 
 
             <Header
                 icon={faBookMedical}
                 iconBgColor={'bg-sky-50'}
                 iconTextColor={'text-sky-600'}
                 title="Finalidad Consulta"
-                description="Tabla de Referencia RIPSFinalidadConsulta de SISPRO"
+                description="Tabla de Referencia RIPSFinalidadConsultaVersion2 de SISPRO"
                 updateDate="2022-10-3"
                 numberRegisters="34"
             />
@@ -62,26 +62,27 @@ const FinalidadConsulta = () => {
                 handleChange={handleSearch}
             />
 
-            <table className='w-full text-sm text-left text-gray-500'>
-                <thead className='text-xs text-gray-700 bg-gray-50'>
-                    <tr>
-                        <th scope="col" className="px-6 py-3">Código</th>
-                        <th scope="col" className='px-6 py-3'>Nombre</th>
-                        <th scope="col" className='px-6 py-3'>Fecha Actualización</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredFinalidadConsulta.map(collection => (
-                        <tr className='bg-white border-b' key={collection._id}>
-                            <th scope="row" className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'>{collection.Codigo}</th>
-                            <td className='px-6 py-4'>{collection.Nombre}</td>
-                            <td className='px-6 py-4'>{collection.FechaActualizacion}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            {filteredFinalidadConsulta.map(collection => (
+                <div
+                    className='flex justify-between items-center border rounded bg-white border-indigo-200 mt-2 py-1 px-4'
+                    key={collection._id}
+                >
+                    <div className='flex py-2'>
+                        <div className='mr-2 font-semibold'>{collection.Codigo}</div>
+                        <div>{collection.Nombre}</div>
+                    </div>
+                    <div>
+                        <div>
+                            <p className='text-xs'>Consultas: <span>{collection["Extra_I:Consultas"]}</span></p>
+                        </div>
+                        <div>
+                            <p className='text-xs'>Procedimientos: <span>{collection["Extra_II:Procedimientos"]}</span></p>
+                        </div>
+                    </div>
+                </div>
+            ))}
         </>
     )
 }
 
-export default FinalidadConsulta
+export default FinalidadConsultaV2

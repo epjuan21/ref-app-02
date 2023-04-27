@@ -5,13 +5,13 @@ import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
-const CausaExterna = () => {
+const CausaExternaV2 = () => {
 
     const [search, setSearch] = useState('')
     const [causaExterna, setCausaExterna] = useState([])
 
     useEffect(() => {
-        getDataFromMongo('causaexterna')
+        getDataFromMongo('causaexternaversion2')
             .then((data) => {
                 setCausaExterna(data)
             }).catch(err => {
@@ -62,26 +62,30 @@ const CausaExterna = () => {
                 handleChange={handleSearch}
             />
 
-            <table className='w-full text-sm text-left text-gray-500'>
-                <thead className='text-xs text-gray-700 bg-gray-50'>
-                    <tr>
-                        <th scope="col" className="px-6 py-3">Código</th>
-                        <th scope="col" className='px-6 py-3'>Nombre</th>
-                        <th scope="col" className='px-6 py-3'>Fecha Actualización</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredCausaExterna.map(collection => (
-                        <tr className='bg-white border-b' key={collection._id}>
-                            <th scope="row" className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'>{collection.Codigo}</th>
-                            <td className='px-6 py-4'>{collection.Nombre}</td>
-                            <td className='px-6 py-4'>{collection.FechaActualizacion}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            {filteredCausaExterna.map(collection => (
+                <div
+                    className='flex justify-between items-center border rounded bg-white border-indigo-200 mt-2 py-1 px-4'
+                    key={collection._id}
+                >
+                    <div className='flex py-2'>
+                        <div className='mr-2 font-semibold'>{collection.Codigo}</div>
+                        <div>{collection.Nombre}</div>
+                    </div>
+                    <div>
+                        <div>
+                            <p className='text-xs'>Consultas: <span>{collection["Extra_I:Consultas"]}</span></p>
+                        </div>
+                        <div>
+                            <p className='text-xs'>Urgencias: <span>{collection["Extra_III:Urgencias"]}</span></p>
+                        </div>
+                        <div>
+                            <p className='text-xs'>Hospitalización: <span>{collection["Extra_IV:Hospitalizacion"]}</span></p>
+                        </div>
+                    </div>
+                </div>
+            ))}
         </>
     )
 }
 
-export default CausaExterna
+export default CausaExternaV2

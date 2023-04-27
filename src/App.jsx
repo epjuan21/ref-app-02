@@ -1,13 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Layout from "./layouts/Layout"
 import { MenuProvider } from "./MenuContext"
-import CausaExterna from "./pages/CausaExterna"
 import Cie from "./pages/Cie"
 import CondicionEgreso from "./pages/CondicionEgreso"
 import Cups from "./pages/Cups"
 import Departamento from "./pages/Departamento"
 import Eapb from "./pages/Eapb"
-import FinalidadConsulta from "./pages/FinalidadConsulta"
 import GrupoServicios from "./pages/GrupoServicios"
 import Home from "./pages/Home"
 import LstSiNo from "./pages/LstSiNo"
@@ -28,6 +26,10 @@ import Vencidos from "./pages/Vencidos"
 import ViaIngreso from "./pages/ViaIngreso"
 import Vigentes from "./pages/Vigentes"
 import Zona from "./pages/Zona"
+import CausaExternaV2 from "./pages/CausaExternav2"
+import CausaExterna from "./pages/CausaExterna"
+import FinalidadConsultaV2 from "./pages/FinalidadConsultaV2"
+import FinalidadConsulta from "./pages/FinalidadConsulta"
 
 function App() {
 
@@ -55,7 +57,9 @@ function App() {
 						<Route path="/tipousuario" element={<TipoUsuario/>} ></Route>
 						<Route path="/tipodiagnosticoppal" element={<TipoDiagnosticoPrincipal/>} ></Route>
 						<Route path="/finalidad" element={<FinalidadConsulta/>} ></Route>
-						<Route path="/causa" element={<CausaExterna/>} ></Route>
+						<Route path="/finalidadversion2" element={<FinalidadConsultaV2/>} ></Route>
+						<Route path="/causaexterna" element={<CausaExterna/>} ></Route>
+						<Route path="/causaversion2" element={<CausaExternaV2/>} ></Route>
 						<Route path="/pais" element={<Pais/>} ></Route>
 						<Route path="/municipio" element={<Municipio/>} ></Route>
 						<Route path="/departamento" element={<Departamento/>} ></Route>

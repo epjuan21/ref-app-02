@@ -1,5 +1,5 @@
 import { faPaperPlane, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
-import { faArrowCircleRight, faBookMedical, faUser, faBuilding, faCapsules, faDisease, faEarthAmericas, faFileMedical, faList, faListDots, faMap, faMattressPillow, faMountainSun, faPeopleGroup, faUsers, faVirus, faHouseMedical, faGroupArrowsRotate, faBed, faBuildingShield, faBuildingUser, faPerson } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleRight, faBookMedical, faUser, faBuilding, faCapsules, faDisease, faEarthAmericas, faFileMedical, faList, faListDots, faMap, faMattressPillow, faMountainSun, faPeopleGroup, faUsers, faVirus, faHouseMedical, faGroupArrowsRotate, faBed, faBuildingShield, faBuildingUser, faPerson, faHouseChimneyMedical, faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
 
 const list = [
     {
@@ -136,8 +136,8 @@ const list = [
     },
     {
         title: "Finalidad Consulta",
-        description: "Finalidad Consulta Versión 2",
-        icon: faBookMedical,
+        description: "Finalidad Consulta",
+        icon: faClipboardCheck,
         iconBgColor: 'bg-sky-50',
         iconTextColor: 'text-sky-600',
         bgColor: 'bg-zinc-100',
@@ -146,7 +146,29 @@ const list = [
         link: '/finalidad'
     },
     {
+        title: "Finalidad Consulta Versión 2",
+        description: "Finalidad Consulta Versión 2",
+        icon: faBookMedical,
+        iconBgColor: 'bg-sky-50',
+        iconTextColor: 'text-sky-600',
+        bgColor: 'bg-zinc-100',
+        textColor: 'text-zinc-600',
+        applications: ['RIPS'],
+        link: '/finalidadversion2'
+    },
+    {
         title: "Causa Externa",
+        description: "Causa Externa",
+        icon: faHouseChimneyMedical,
+        iconBgColor: 'bg-cyan-50',
+        iconTextColor: 'text-cyan-600',
+        bgColor: 'bg-zinc-100',
+        textColor: 'text-zinc-600',
+        applications: ['RIPS'],
+        link: '/causaexterna'
+    },
+    {
+        title: "Causa Externa Versión 2",
         description: "Causa Externa Versión 2",
         icon: faFileMedical,
         iconBgColor: 'bg-cyan-50',
@@ -154,7 +176,7 @@ const list = [
         bgColor: 'bg-zinc-100',
         textColor: 'text-zinc-600',
         applications: ['RIPS'],
-        link: '/causa'
+        link: '/causaversion2'
     },
     {
         title: "Pais",

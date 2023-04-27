@@ -4,7 +4,7 @@ import { MenuContext } from '../../MenuContext'
 
 const ButtonMenu = () => {
 
-    const { toggleMenu} = useContext(MenuContext)
+    const { toggleMenu } = useContext(MenuContext)
 
     return (
         <div className="fixed bottom-5 left-5 flex justify-end">

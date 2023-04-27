@@ -11,7 +11,7 @@ function MenuProvider({ children }) {
     const toggleMenu = () => {
         setIsOpen(!isOpen)
     }
-    
+
     return (
         <MenuContext.Provider value={{
             isOpen,
