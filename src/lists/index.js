@@ -25,6 +25,17 @@ const list = [
         link: '/cups'
     },
     {
+        title: "CUPSRes",
+        description: "Codigos CUPS Resolución 2236",
+        icon: faList,
+        iconBgColor: 'bg-purple-50',
+        iconTextColor: 'text-purple-600',
+        bgColor: 'bg-zinc-100',
+        textColor: 'text-zinc-600',
+        applications: ['RIPS'],
+        link: '/cupsres'
+    },
+    {
         title: "CIE10",
         description: "Codigos CIE10",
         icon: faVirus,

@@ -4,6 +4,7 @@ import { MenuProvider } from "./MenuContext"
 import Cie from "./pages/Cie"
 import CondicionEgreso from "./pages/CondicionEgreso"
 import Cups from "./pages/Cups"
+import CupsRes from "./pages/CupsRes"
 import Departamento from "./pages/Departamento"
 import Eapb from "./pages/Eapb"
 import GrupoServicios from "./pages/GrupoServicios"
@@ -46,6 +47,7 @@ function App() {
 							<Route path="otros" element={<Otros />} />
 						</Route>
 						<Route path="/cups" element={<Cups/>} ></Route>
+						<Route path="/cupsres" element={<CupsRes/>} ></Route>
 						<Route path="/cie" element={<Cie/>} ></Route>
 						<Route path="/tipoid" element={<TipoId/>} ></Route>
 						<Route path="/zona" element={<Zona/>} ></Route>
